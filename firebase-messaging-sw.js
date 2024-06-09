@@ -5,7 +5,7 @@ self.addEventListener("push", (event) => {
         icon: notif.image,
         data: {
             url: notif.click_action,
-             deeplink: "example://gizmos"
+             deeplink: "https://example.co.il"
         }
     }));
 
