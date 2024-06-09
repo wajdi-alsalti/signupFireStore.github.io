@@ -4,12 +4,18 @@ self.addEventListener("push", (event) => {
         body: notif.body,
         icon: notif.image,
         data: {
-            url: notif.click_action
+            url: notif.click_action,
+             deeplink: "example://gizmos"
         }
     }));
 
 });
 
 self.addEventListener("notificationclick", (event) => {
-    event.waitUntil(clients.openWindow(event.notification.data.url));
+    const deepLinkUrl = event.notification.data.deeplink;
+    event.waitUntil(clients.openWindow(deepLinkUrl));
 });
+
+// self.addEventListener("notificationclick", (event) => {
+//     event.waitUntil(clients.openWindow(event.notification.data.url));
+// });
