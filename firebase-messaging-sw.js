@@ -11,11 +11,11 @@ self.addEventListener("push", (event) => {
 
 });
 
-self.addEventListener("notificationclick", (event) => {
-    const deepLinkUrl = event.notification.data.deeplink;
-    event.waitUntil(window.location.href = deepLinkUrl);
-});
-
 // self.addEventListener("notificationclick", (event) => {
-//     event.waitUntil(clients.openWindow(event.notification.data.url));
+//     const deepLinkUrl = event.notification.data.deeplink;
+//     event.waitUntil(window.location.href = deepLinkUrl);
 // });
+
+self.addEventListener("notificationclick", (event) => {
+    event.waitUntil(clients.openWindow(event.notification.data.url));
+});
