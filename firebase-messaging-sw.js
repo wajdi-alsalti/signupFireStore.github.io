@@ -13,7 +13,7 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
     const deepLinkUrl = event.notification.data.deeplink;
-    event.waitUntil(clients.openWindow(deepLinkUrl));
+    event.waitUntil(window.location.href = deepLinkUrl);
 });
 
 // self.addEventListener("notificationclick", (event) => {
